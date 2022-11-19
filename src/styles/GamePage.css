@@ -1,0 +1,58 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px 0 40px;
+}
+header img {
+  height: 120px;
+  cursor: pointer;
+}
+
+.score {
+  padding: 15px;
+  background-color: rgb(23, 35, 62);
+  color: white;
+  font-size: 24px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 15px #424242, 0px -5px 15px #424242;
+}
+.score div:first-child {
+  margin-bottom: 10px;
+}
+
+.playGround {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.characterHolder, .card {
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+}
+
+.characterHolder {
+  height: 290px;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 340px;
+  width: 220px;
+  padding: 7px 8px 10px 8px;
+  flex-shrink: 0;
+  background-image: url(../assets/img/card_background.jpg);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}/*# sourceMappingURL=GamePage.css.map */

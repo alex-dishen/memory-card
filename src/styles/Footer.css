@@ -1,6 +1,25 @@
 footer {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
+  padding: 0 40px 20px 40px;
+}
+footer .soundSection {
+  display: flex;
+  gap: 12px;
+}
+footer button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(168, 106, 37);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
 }
 footer img {
   height: 30px;

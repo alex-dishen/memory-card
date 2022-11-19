@@ -3,7 +3,7 @@ import logo from '../assets/img/logo.png';
 import '../styles/StartPage.css'
 
 function StartPage() {
-    return(
+    return (
         <>
             <div className='start'>
                 <img src={logo} alt="Logo" />
