@@ -1,0 +1,19 @@
+@import './utils';
+
+@keyframes run {
+    0% {transform: translateX(-130px);}
+    100% {transform: translateX(130px);}
+}
+
+.loadingPage {
+    @include flexCenter(column, center, center);
+    
+    img {
+        height: 150px;
+        animation: run 4s linear
+    }
+    
+    p {
+        color: white;
+    }
+}

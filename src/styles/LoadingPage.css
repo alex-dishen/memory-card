@@ -1,0 +1,30 @@
+@-webkit-keyframes run {
+  0% {
+    transform: translateX(-130px);
+  }
+  100% {
+    transform: translateX(130px);
+  }
+}
+@keyframes run {
+  0% {
+    transform: translateX(-130px);
+  }
+  100% {
+    transform: translateX(130px);
+  }
+}
+.loadingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.loadingPage img {
+  height: 150px;
+  -webkit-animation: run 4s linear;
+          animation: run 4s linear;
+}
+.loadingPage p {
+  color: white;
+}/*# sourceMappingURL=LoadingPage.css.map */
