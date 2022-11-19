@@ -1,0 +1,6 @@
+@import './utils';
+
+.start {
+    flex: 1;
+    @include flexCenter(column, center, center);
+}

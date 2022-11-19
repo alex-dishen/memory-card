@@ -6,11 +6,12 @@
 }
 
 .loadingPage {
+    flex: 1;
     @include flexCenter(column, center, center);
-    
+
     img {
         height: 150px;
-        animation: run 4s linear
+        animation: run 4s linear;
     }
     
     p {
