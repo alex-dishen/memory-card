@@ -3,8 +3,8 @@
 footer {
     button {
         @include flexCenter(row, center, center);
-        height: 40px;
-        width: 40px;
+        height: 45px;
+        width: 45px;
         border-radius: 50%;
     }
 }

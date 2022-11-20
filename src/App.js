@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       {/* <LoadingPage /> */}
-      <StartPage />
-      {/* <GamePage /> */}
+      {/* <StartPage /> */}
+      <GamePage />
       <video autoPlay muted loop id='myVideo'>
         <source src={video} type='video/mp4'/>
       </video>

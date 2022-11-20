@@ -67,6 +67,8 @@ button:active {
 }
 @media (max-width: 536px) {
   .headerContainer {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
     justify-content: center;
   }
   .score {
