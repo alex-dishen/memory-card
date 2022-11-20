@@ -5,10 +5,7 @@ footer {
         @include flexCenter(row, center, center);
         height: 40px;
         width: 40px;
-
-        border: none;
         border-radius: 50%;
-        cursor: pointer;
     }
 }
 

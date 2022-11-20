@@ -1,3 +1,8 @@
+// variables
+$darkBlue: rgb(23, 35, 62);
+$paleGreen: rgb(161, 172, 130);
+
+// mixins
 @mixin flexCenter($direction, $alignItem, $justifyContent) {
     display: flex;
     flex-direction: $direction;

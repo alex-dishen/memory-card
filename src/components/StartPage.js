@@ -5,8 +5,8 @@ import '../styles/StartPage.css'
 function StartPage() {
     return (
         <>
-            <div className='start'>
-                <img src={logo} alt="Logo" />
+            <div className='startPage'>
+                <img src={logo} alt="Logo" className='logo'/>
                 <h1>Memory Game</h1>
                 <div className="difficultyLevels">
                     <button>Easy</button>

@@ -16,6 +16,15 @@ video {
   filter: brightness(70%);
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:active {
+  transform: scale(0.9);
+}
+
 @media (max-width: 1260px) {
   .card {
     width: 180px;
@@ -24,26 +33,36 @@ video {
 @media (max-width: 1010px) {
   .sound, .music, .questionMark {
     fill: white;
-    transition: 1.5s;
+    transition: 1s;
   }
   footer button {
     background-color: rgb(23, 35, 62);
-    transition: 1.5s;
+    transition: background-color 1s, transform 0.2s;
   }
 }
 @media (min-width: 1010px) {
   .sound, .music, .questionMark {
     fill: black;
-    transition: 2s;
+    transition: 1s;
   }
   footer button {
     background-color: rgb(168, 106, 37);
-    transition: 1.5s;
+    transition: background-color 1s, transform 0.2s;
   }
 }
 @media (max-width: 660px) {
   .card {
     width: max(25.5vw, 128px);
+  }
+  .logo {
+    width: 77.8vw;
+  }
+  .startPage h1 {
+    font-size: 9.1vw;
+  }
+  .difficultyLevels button {
+    padding: 2vw 2.8vw 2vw 2.8vw;
+    font-size: 3.65vw;
   }
 }
 @media (max-width: 536px) {
