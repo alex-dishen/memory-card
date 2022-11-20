@@ -14,4 +14,43 @@ video {
   -o-object-fit: cover;
      object-fit: cover;
   filter: brightness(70%);
+}
+
+@media (max-width: 1260px) {
+  .card {
+    width: 180px;
+  }
+}
+@media (max-width: 1010px) {
+  .sound, .music, .questionMark {
+    fill: white;
+    transition: 1.5s;
+  }
+  footer button {
+    background-color: rgb(23, 35, 62);
+    transition: 1.5s;
+  }
+}
+@media (min-width: 1010px) {
+  .sound, .music, .questionMark {
+    fill: black;
+    transition: 2s;
+  }
+  footer button {
+    background-color: rgb(168, 106, 37);
+    transition: 1.5s;
+  }
+}
+@media (max-width: 660px) {
+  .card {
+    width: max(25.5vw, 128px);
+  }
+}
+@media (max-width: 536px) {
+  .headerContainer {
+    justify-content: center;
+  }
+  .score {
+    margin: 30px 0 0 0;
+  }
 }/*# sourceMappingURL=App.css.map */

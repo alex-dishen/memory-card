@@ -1,8 +1,11 @@
 @import './utils';
 
-header {
+.headerContainer {
     @include flexCenter(row, center, space-between);
-    padding: 20px 40px 0 40px;
+    flex-wrap: wrap;
+    padding: 20px 30px 0 30px;
+    max-width: 1700px;
+    margin: 0 auto;
 
     img {
         height: 120px;
@@ -11,7 +14,9 @@ header {
 }
 
 .score {
+    flex-shrink: 0;
     padding: 15px;
+    margin-left: 40px;
     background-color: rgb(23, 35, 62); 
     color: white;
     font-size: 24px;
@@ -26,30 +31,37 @@ header {
 .playGround {
     flex: 1;
     @include flexCenter(row, center, center);
+    padding: 0 40px 0 40px;
+    margin: 30px 0 30px 0;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
-.characterHolder, .card {
+.characterHolder, 
+.card {
     background-size: cover;
     background-position: center;
     border-radius: 25px;
 }
 
-.characterHolder {
-    height: 290px;
-    width: 100%;
-
-}
-
 .card {
     @include flexCenter(column, center, space-between);
-    height: 340px;
+    aspect-ratio: 1 / 1.41;
     width: 220px;
     padding: 7px 8px 10px 8px;
     flex-shrink: 0;
-    
+
     background-image: url(../assets/img/card_background.jpg);
     color: white;
     font-size: 22px;
     cursor: pointer;
+}
+
+.characterHolder {
+    height: 100%;
+    width: 100%;
+}
+
+.name {
+    margin-top: 5px;
 }

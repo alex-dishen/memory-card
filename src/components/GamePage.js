@@ -5,6 +5,7 @@ import dipper from '../assets/img/dipper.webp';
 import ford from '../assets/img/ford.png';
 import gideon from '../assets/img/gideon.webp';
 import mabel from '../assets/img/bill.webp';
+import Tilt from 'react-parallax-tilt'
 
 import '../styles/GamePage.css'
 
@@ -12,43 +13,55 @@ function GamePage() {
     return (
         <>
             <header>
-                <img src={logo} alt="Logo" />
-                <div className="score">
-                    <div>Score: 0</div>
-                    <div>Best score: 0</div>
+                <div className="headerContainer">
+                    <img src={logo} alt="Logo" />
+                    <div className="score">
+                        <div>Score: 0</div>
+                        <div>Best score: 0</div>
+                    </div>
                 </div>
             </header>
             <div className='playGround'>
-                <div className='card'>
-                    <div
-                        className="characterHolder"
-                        style={{backgroundImage: `url(${stan})`}} />
-                    <div className='name'>Stan</div>
-                </div>
-                <div className='card'>
-                    <div
-                        className="characterHolder"
-                        style={{backgroundImage: `url(${dipper})`}} />
-                    <div className='name'>Dipper</div>
-                </div>
-                <div className='card'>
-                    <div
-                        className="characterHolder"
-                        style={{backgroundImage: `url(${ford})`}} />
-                    <div className='name'>Ford</div>
-                </div>
-                <div className='card'>
-                    <div
-                        className="characterHolder"
-                        style={{backgroundImage: `url(${gideon})`}} />
-                    <div className='name'>Gideon</div>
-                </div>
-                <div className='card'>
-                    <div
-                        className="characterHolder"
-                        style={{backgroundImage: `url(${mabel})`}} />
-                    <div className='name'>Mabel</div>
-                </div>
+                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
+                    <div className='card'>
+                        <div
+                            className="characterHolder"
+                            style={{backgroundImage: `url(${stan})`}} />
+                        <div className='name'>Mabel</div>
+                    </div>
+                </Tilt>
+                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
+                    <div className='card'>
+                        <div
+                            className="characterHolder"
+                            style={{backgroundImage: `url(${dipper})`}} />
+                        <div className='name'>Mabel</div>
+                    </div>
+                </Tilt>
+                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
+                    <div className='card'>
+                        <div
+                            className="characterHolder"
+                            style={{backgroundImage: `url(${ford})`}} />
+                        <div className='name'>Mabel</div>
+                    </div>
+                </Tilt>
+                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
+                    <div className='card'>
+                        <div
+                            className="characterHolder"
+                            style={{backgroundImage: `url(${gideon})`}} />
+                        <div className='name'>Mabel</div>
+                    </div>
+                </Tilt>
+                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
+                    <div className='card'>
+                        <div
+                            className="characterHolder"
+                            style={{backgroundImage: `url(${mabel})`}} />
+                        <div className='name'>Mabel</div>
+                    </div>
+                </Tilt>
             </div>
             <Footer />
         </>
