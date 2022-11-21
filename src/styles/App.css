@@ -31,10 +31,7 @@ button:active {
   }
 }
 @media (max-width: 1010px) {
-  .sound,
-.music,
-.musicOff,
-.questionMark {
+  .svg {
     fill: white;
     transition: 1s;
   }
@@ -44,10 +41,7 @@ button:active {
   }
 }
 @media (min-width: 1010px) {
-  .sound,
-.music,
-.musicOff,
-.questionMark {
+  .svg {
     fill: black;
     transition: 1s;
   }

@@ -8,7 +8,7 @@ import Tilt from 'react-parallax-tilt'
 
 import '../styles/GamePage.css'
 
-function GamePage({ goBackToStartPage }) {
+function GamePage({ goBackToStartPage, playClick, playFlip }) {
     return (
         <>
             <header>
@@ -16,7 +16,7 @@ function GamePage({ goBackToStartPage }) {
                     <img 
                         src={logo}
                         alt="Logo"
-                        onClick={goBackToStartPage}/>
+                        onClick={() => {goBackToStartPage(); playClick()}}/>
                     <div className="score">
                         <div>Score: 0</div>
                         <div>Best score: 0</div>
@@ -25,7 +25,7 @@ function GamePage({ goBackToStartPage }) {
             </header>
             <div className='playGround'>
                 <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card'>
+                    <div className='card' onClick={playFlip}>
                         <div
                             className="characterHolder"
                             style={{backgroundImage: `url(${stan})`}} />
@@ -33,7 +33,7 @@ function GamePage({ goBackToStartPage }) {
                     </div>
                 </Tilt>
                 <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card'>
+                    <div className='card' onClick={playFlip}>
                         <div
                             className="characterHolder"
                             style={{backgroundImage: `url(${dipper})`}} />
@@ -41,7 +41,7 @@ function GamePage({ goBackToStartPage }) {
                     </div>
                 </Tilt>
                 <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card'>
+                    <div className='card' onClick={playFlip}>
                         <div
                             className="characterHolder"
                             style={{backgroundImage: `url(${ford})`}} />
@@ -49,7 +49,7 @@ function GamePage({ goBackToStartPage }) {
                     </div>
                 </Tilt>
                 <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card'>
+                    <div className='card' onClick={playFlip}>
                         <div
                             className="characterHolder"
                             style={{backgroundImage: `url(${gideon})`}} />
@@ -57,7 +57,7 @@ function GamePage({ goBackToStartPage }) {
                     </div>
                 </Tilt>
                 <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card'>
+                    <div className='card' onClick={playFlip}>
                         <div
                             className="characterHolder"
                             style={{backgroundImage: `url(${mabel})`}} />
