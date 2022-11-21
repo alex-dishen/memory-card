@@ -1,4 +1,3 @@
-import Footer from './Footer';
 import logo from '../assets/img/logo.png';
 import stan from '../assets/img/stan.webp';
 import dipper from '../assets/img/dipper.webp';
@@ -9,12 +8,15 @@ import Tilt from 'react-parallax-tilt'
 
 import '../styles/GamePage.css'
 
-function GamePage() {
+function GamePage({ goBackToStartPage }) {
     return (
         <>
             <header>
                 <div className="headerContainer">
-                    <img src={logo} alt="Logo" />
+                    <img 
+                        src={logo}
+                        alt="Logo"
+                        onClick={goBackToStartPage}/>
                     <div className="score">
                         <div>Score: 0</div>
                         <div>Best score: 0</div>
@@ -63,7 +65,6 @@ function GamePage() {
                     </div>
                 </Tilt>
             </div>
-            <Footer />
         </>
     );
 }

@@ -35,7 +35,10 @@ button {
 }
 
 @media (max-width: 1010px) {
-    .sound, .music, .questionMark {
+    .sound, 
+    .music,
+    .musicOff,
+    .questionMark {
         fill: white;
         transition: 1s;
     }
@@ -47,7 +50,10 @@ button {
 }
 
 @media (min-width: 1010px) {
-    .sound, .music, .questionMark {
+    .sound,
+    .music,
+    .musicOff, 
+    .questionMark {
         fill: black;
         transition: 1s;
     }
