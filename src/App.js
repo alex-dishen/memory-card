@@ -20,12 +20,13 @@ function App({
   const [isDifficultyChosen, setIsDifficultyChosen] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isSoundPlaying, setIsSoundPlaying] = useState(true);
+  const [isInfoNeeded, setIsInfoNeeded] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoadingOver(true);
       // setIsMusicPlaying(true);
-    }, 3800)
+    }, 3700)
   }, []);
 
   const goBackToStartPage = () => {
@@ -35,7 +36,7 @@ function App({
   const playFlip = () => {
     if(isSoundPlaying) {
       const audio = new Audio(flipSound);
-      audio.volume = 0.16;
+      audio.volume = 0.13;
       audio.play();
     }
   };
@@ -68,6 +69,8 @@ function App({
                   setIsMusicPlaying={setIsMusicPlaying}
                   isSoundPlaying={isSoundPlaying}
                   setIsSoundPlaying={setIsSoundPlaying}
+                  isInfoNeeded={isInfoNeeded}
+                  setIsInfoNeeded={setIsInfoNeeded}
                   playClick={playClick}/>
           </>
         )
@@ -83,7 +86,7 @@ function App({
           onPlaying={handleSongPlaying}
           onFinishedPlaying={handleSongFinishedPlaying}
           volume={1.4}
-          loop/>
+          loop={true}/>
     </>
   );
 }

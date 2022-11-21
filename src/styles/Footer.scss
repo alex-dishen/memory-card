@@ -24,3 +24,30 @@ footer {
 .svg {
     height: 25px;
 }
+
+.instructions {
+    position: fixed;
+    bottom: 80px;
+    right: 260px;
+    margin-left: 40px;
+
+    & div:first-child {
+        margin-bottom: 10px;
+    }
+}
+
+.instructions div {
+    padding: 20px 20px 20px 20px;
+    background-color: $darkBlue;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow:  0px 0px 8px #424242, -0px -0px 8px #424242;
+}
+
+.mabelInfo {
+    position: fixed;
+    height: 170px;
+    bottom: -3px;
+    right: 110px;
+}
