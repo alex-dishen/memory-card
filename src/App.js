@@ -25,7 +25,6 @@ function App({
   useEffect(() => {
     setTimeout(() => {
       setIsLoadingOver(true);
-      // setIsMusicPlaying(true);
     }, 3700)
   }, []);
 
@@ -44,7 +43,7 @@ function App({
   const playClick = () => {
     if(isSoundPlaying) {
       const audio = new Audio(clickSound);
-      audio.volume = 0.06;
+      audio.volume = 0.04;
       audio.play();
     }
   };

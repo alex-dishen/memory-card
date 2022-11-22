@@ -1,13 +1,29 @@
 import logo from '../assets/img/logo.png';
-import '../styles/StartPage.css'
+import '../styles/StartPage.css';
+import { motion } from 'framer-motion';
 
 function StartPage({ setIsDifficultyChosen, playClick }) {
     return (
         <>
             <div className='startPage'>
-                <img src={logo} alt="Logo" className='logo'/>
-                <h1>Memory Game</h1>
-                <div className="difficultyLevels">
+                <motion.img 
+                    src={logo} alt="Logo"
+                    className='logo'
+
+                    initial={{scale: 0}}
+                    animate={{scale: 1}}
+                    transition={{duration: 0.5}}/>
+                <motion.h1
+                    initial={{scale: 0}}
+                    animate={{scale: 1}}
+                    transition={{duration: 0.5}}>
+                        Memory Game
+                </motion.h1>
+                <motion.div 
+                    className="difficultyLevels"
+                    initial={{scale: 0}}
+                    animate={{scale: 1}}
+                    transition={{duration: 0.5}}>
                     <button onClick={() => {
                         setIsDifficultyChosen(true);
                         playClick();
@@ -22,7 +38,7 @@ function StartPage({ setIsDifficultyChosen, playClick }) {
                         setIsDifficultyChosen(true);
                         playClick();
                     }}> Hard </button>
-                </div>
+                </motion.div>
             </div>
         </>
     ); 

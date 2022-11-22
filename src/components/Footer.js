@@ -5,7 +5,8 @@ import { ReactComponent as MusicOff } from '../assets/img/music_off.svg';
 import { ReactComponent as QuestionMark } from '../assets/img/question_mark.svg';
 import { ReactComponent as Cross } from '../assets/img/cross.svg';
 import mabelInfo from '../assets/img/mabel-info.png';
-import '../styles/Footer.css'
+import { motion, AnimatePresence } from 'framer-motion';
+import '../styles/Footer.css';
 
 function Footer({
     isMusicPlaying,
@@ -16,7 +17,10 @@ function Footer({
     setIsInfoNeeded,
     playClick }) {
     return (
-        <footer>
+        <motion.footer
+            initial={{opacity: 0, y: 100}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.7}}>
             <div className="footerContainer">
                 <div className="soundSection">
                     <button onClick={() => {
@@ -44,17 +48,31 @@ function Footer({
                         ? <Cross className='svg' />
                         : <QuestionMark className='svg' />}
                 </button>
-                {isInfoNeeded &&
-                          <>
-                            <div className="instructions">
-                              <div>Don't click on the same card twice!</div>
-                              <div>Click on GRAVITY FALLS logo to go back.</div>
-                            </div>
-                            <img src={mabelInfo} alt="Mabel Info" className='mabelInfo'/>
-                          </>
-                }
+                <AnimatePresence>
+                    {isInfoNeeded && (
+                        <>
+                            <motion.div className="instructions"
+                                key='modal'
+                                initial={{opacity: 0, y: 100}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{duration: 0.6}}
+                                exit={{opacity: 0, y: 100}}>
+                                    <div>Don't click on the same card twice!</div>
+                                    <div>Click on GRAVITY FALLS logo to go back.</div>
+                            </motion.div>
+                            <motion.img
+                                src={mabelInfo}
+                                alt="Mabel Info"
+                                className='mabelInfo'
+                                initial={{opacity: 0, y: 100}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{duration: 0.6}}
+                                exit={{opacity: 0, y: 100}}/>
+                        </>  
+                    )}
+                </AnimatePresence>
             </div>
-        </footer>
+        </motion.footer>
     );
 }
 

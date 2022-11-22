@@ -19,7 +19,10 @@ video {
 button {
   border: none;
   cursor: pointer;
-  transition: 0.2s;
+  transition: transform 0.2s;
+}
+button:hover {
+  transform: scale(1.07);
 }
 button:active {
   transform: scale(0.9);
