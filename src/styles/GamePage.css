@@ -34,35 +34,59 @@
 .playGround {
   flex: 1;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 40px 0 40px;
+  margin: 30px 0 30px 0;
+}
+
+.cardSection {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0 40px 0 40px;
-  margin: 30px 0 30px 0;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  aspect-ratio: 1/1.546;
+  width: 220px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  cursor: pointer;
+}
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.tilt {
+  height: 100%;
+  transform-style: preserve-3d;
 }
 
 .characterHolder,
-.card {
+.cardFace {
   background-size: cover;
   background-position: center;
   border-radius: 25px;
 }
 
-.card {
+.cardFace {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  aspect-ratio: 1/1.41;
-  width: 220px;
+  width: 100%;
+  height: 100%;
   padding: 7px 8px 10px 8px;
   flex-shrink: 0;
   background-image: url(../assets/img/card_background.jpg);
   color: white;
   font-size: 22px;
-  cursor: pointer;
 }
 
 .characterHolder {
@@ -70,6 +94,22 @@
   width: 100%;
 }
 
+.cardBack {
+  height: 100%;
+  background: url(../assets/img/card_background.jpg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  transform: rotateY(180deg);
+}
+
 .name {
   margin-top: 5px;
+}
+
+.remainIndicator {
+  color: white;
+  font-size: 20px;
 }/*# sourceMappingURL=GamePage.css.map */

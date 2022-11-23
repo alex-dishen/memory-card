@@ -3,12 +3,12 @@ import LoadingPage from './components/LoadingPage';
 import StartPage from './components/StartPage';
 import GamePage from './components/GamePage';
 import Footer from './components/Footer';
-import video from './assets/img/camp.mp4';
 import Sound from 'react-sound';
+import video from './assets/img/camp.mp4';
 import backgroundMusic from './assets/sounds/background_music.mp3';
 import flipSound from './assets/sounds/flip.mp3';
 import clickSound from './assets/sounds/click.wav';
-import charactersArray from './components/characters';
+import characters from './components/characters';
 import './styles/normalize.css';
 import './styles/App.css';
 
@@ -21,9 +21,8 @@ function App({
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isSoundPlaying, setIsSoundPlaying] = useState(true);
   const [isInfoNeeded, setIsInfoNeeded] = useState(false);
-  const [characters, setCharacters] = useState(charactersArray);
-  const [charactersToDisplay, setCharactersToDisplay] = useState([]);
-  const [difficultyLevel, setDifficultyLevel] = useState(0);
+  const [difficultyLevel, setDifficultyLevel] = useState([]);
+  const [charactersToPlayWith, setCharactersToPlayWith] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,7 +31,7 @@ function App({
   }, []);
 
   const goBackToStartPage = () => {
-    setDifficultyLevel(0);
+    setDifficultyLevel([]);
   };
 
   const playFlip = () => {
@@ -51,14 +50,17 @@ function App({
     }
   };
 
-  const getCharactersToDisplay = () => {
-    const newCharacters = [];
-    for (let i = 0; i < difficultyLevel; i++) {
+  const getCharactersToPlayWith = () => {
+    let randomCharacters = [];
+
+    while(randomCharacters.length < difficultyLevel[0]) {
       const randNum = Math.floor(Math.random() * 10);
-      const randomCharacter = characters[randNum];
-      newCharacters.push(randomCharacter);
+      if(!randomCharacters.includes(characters[randNum])) {
+        randomCharacters.push(characters[randNum]);
+      }
     }
-    setCharactersToDisplay(newCharacters);
+
+    setCharactersToPlayWith(randomCharacters);
   }
 
   return (
@@ -67,7 +69,7 @@ function App({
         ? <LoadingPage />
         : (
           <>
-              {!difficultyLevel
+              {!difficultyLevel[0]
                 ? <StartPage 
                       setDifficultyLevel={setDifficultyLevel}
                       playClick={playClick}/>
@@ -75,8 +77,8 @@ function App({
                       goBackToStartPage={goBackToStartPage}
                       playClick={playClick}
                       playFlip={playFlip}
-                      getCharactersToDisplay={getCharactersToDisplay}
-                      charactersToDisplay={charactersToDisplay}/>}
+                      getCharactersToPlayWith={getCharactersToPlayWith}
+                      charactersToPlayWith={charactersToPlayWith}/>}
 
               <Footer 
                   isMusicPlaying={isMusicPlaying}
@@ -95,7 +97,7 @@ function App({
       </video>
       <Sound 
           url={backgroundMusic}
-          playStatus={isMusicPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
+          playStatus={isMusicPlaying ? Sound.status.PLAYING : Sound.status.PAUSED}
           onLoading={handleSongLoading}
           onPlaying={handleSongPlaying}
           onFinishedPlaying={handleSongFinishedPlaying}

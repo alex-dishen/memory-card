@@ -10,7 +10,7 @@ import stan from '../assets/img/stan.webp';
 import waddles from '../assets/img/waddles.webp';
 import wendy from '../assets/img/wendy.webp';
 
-const charactersArray = [
+const characters = [
     {
         id: uniqid(),
         name: 'Bill',
@@ -63,4 +63,4 @@ const charactersArray = [
     },
 ];
 
-export default charactersArray;
+export default characters;

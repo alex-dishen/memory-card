@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion';
 import logo from '../assets/img/logo.png';
 import '../styles/StartPage.css';
-import { motion } from 'framer-motion';
 
 function StartPage({ setDifficultyLevel, playClick }) {
     return (
@@ -25,17 +25,22 @@ function StartPage({ setDifficultyLevel, playClick }) {
                     animate={{scale: 1}}
                     transition={{duration: 0.5}}>
                     <button onClick={() => {
-                        setDifficultyLevel(5);
+                        // The first number indicates the amount of characters
+                        //the user is going to interact with during the whole game.
+                        // The second number indicates the amount of
+                        //characters the user will see on the playground.
+                        // The same happens in other buttons.
+                        setDifficultyLevel([5, 3]);
                         playClick();
                     }}> Easy </button>
 
                     <button onClick={() => {
-                        setDifficultyLevel(7);
+                        setDifficultyLevel([7, 4]);
                         playClick();
                     }}> Medium </button>
 
                     <button onClick={() => {
-                        setDifficultyLevel(10);
+                        setDifficultyLevel([10, 5]);
                         playClick();
                     }}> Hard </button>
                 </motion.div>
