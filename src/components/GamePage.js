@@ -1,16 +1,25 @@
 import logo from '../assets/img/logo.png';
-import stan from '../assets/img/stan.webp';
-import dipper from '../assets/img/dipper.webp';
-import ford from '../assets/img/ford.png';
-import gideon from '../assets/img/gideon.webp';
-import waddles from '../assets/img/waddles.webp';
-import mabel from '../assets/img/bill.webp';
 import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import '../styles/GamePage.css';
 
-import '../styles/GamePage.css'
+function GamePage({
+    goBackToStartPage,
+    playClick,
+    playFlip,
+    getCharactersToDisplay,
+    charactersToDisplay
+}) {
 
-function GamePage({ goBackToStartPage, playClick, playFlip }) {
+    useEffect(() => {
+        getCharactersToDisplay();
+
+        return () => {
+            charactersToDisplay = [];
+        }
+    }, []);
+
     return (
         <>
             <header>
@@ -37,46 +46,25 @@ function GamePage({ goBackToStartPage, playClick, playFlip }) {
                 initial={{scale: 0}}
                 animate={{scale: 1}}
                 transition={{duration: 0.5}}>
-                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card' onClick={playFlip}>
-                        <div
-                            className="characterHolder"
-                            style={{backgroundImage: `url(${stan})`}} />
-                        <div className='name'>Stan</div>
-                    </div>
-                </Tilt>
-                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card' onClick={playFlip}>
-                        <div
-                            className="characterHolder"
-                            style={{backgroundImage: `url(${dipper})`}} />
-                        <div className='name'>Dipper</div>
-                    </div>
-                </Tilt>
-                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card' onClick={playFlip}>
-                        <div
-                            className="characterHolder"
-                            style={{backgroundImage: `url(${ford})`}} />
-                        <div className='name'>Ford</div>
-                    </div>
-                </Tilt>
-                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card' onClick={playFlip}>
-                        <div
-                            className="characterHolder"
-                            style={{backgroundImage: `url(${waddles})`}}/>
-                        <div className='name'>Waddles</div>
-                    </div>
-                </Tilt>
-                <Tilt glareEnable={true} glareMaxOpacity={0.6} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
-                    <div className='card' onClick={playFlip}>
-                        <div
-                            className="characterHolder"
-                            style={{backgroundImage: `url(${mabel})`}} />
-                        <div className='name'>Bill</div>
-                    </div>
-                </Tilt>
+                    {charactersToDisplay.map(character => {
+                        return(
+                            <Tilt 
+                                glareEnable={true}
+                                glareMaxOpacity={0.6}
+                                glareColor="#ffffff"
+                                glarePosition="bottom"
+                                glareBorderRadius="20px"
+                                >
+                                    <div className='card' onClick={playFlip} key={character.id}>
+                                        <div
+                                            className="characterHolder"
+                                            style={{backgroundImage: `url(${character.src})`}} />
+                                        <div className='name'>{character.name}</div>
+                                    </div>
+                            </Tilt>
+                        );
+                    })}
+                    {/* <div>{`0 / ${charactersToDisplay.length}`}</div> */}
             </motion.div>
         </>
     );

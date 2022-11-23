@@ -2,7 +2,7 @@ import logo from '../assets/img/logo.png';
 import '../styles/StartPage.css';
 import { motion } from 'framer-motion';
 
-function StartPage({ setIsDifficultyChosen, playClick }) {
+function StartPage({ setDifficultyLevel, playClick }) {
     return (
         <>
             <div className='startPage'>
@@ -25,17 +25,17 @@ function StartPage({ setIsDifficultyChosen, playClick }) {
                     animate={{scale: 1}}
                     transition={{duration: 0.5}}>
                     <button onClick={() => {
-                        setIsDifficultyChosen(true);
+                        setDifficultyLevel(5);
                         playClick();
                     }}> Easy </button>
 
                     <button onClick={() => {
-                        setIsDifficultyChosen(true);
+                        setDifficultyLevel(7);
                         playClick();
                     }}> Medium </button>
 
                     <button onClick={() => {
-                        setIsDifficultyChosen(true);
+                        setDifficultyLevel(10);
                         playClick();
                     }}> Hard </button>
                 </motion.div>

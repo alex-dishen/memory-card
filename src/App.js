@@ -8,6 +8,7 @@ import Sound from 'react-sound';
 import backgroundMusic from './assets/sounds/background_music.mp3';
 import flipSound from './assets/sounds/flip.mp3';
 import clickSound from './assets/sounds/click.wav';
+import charactersArray from './components/characters';
 import './styles/normalize.css';
 import './styles/App.css';
 
@@ -17,20 +18,22 @@ function App({
   handleSongFinishedPlaying
 }) {
   const [isLoadingOver, setIsLoadingOver] = useState(false);
-  const [isDifficultyChosen, setIsDifficultyChosen] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isSoundPlaying, setIsSoundPlaying] = useState(true);
   const [isInfoNeeded, setIsInfoNeeded] = useState(false);
+  const [characters, setCharacters] = useState(charactersArray);
+  const [charactersToDisplay, setCharactersToDisplay] = useState([]);
+  const [difficultyLevel, setDifficultyLevel] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoadingOver(true);
-    }, 3700)
+    }, 3700);
   }, []);
 
   const goBackToStartPage = () => {
-    setIsDifficultyChosen(false)
-};
+    setDifficultyLevel(0);
+  };
 
   const playFlip = () => {
     if(isSoundPlaying) {
@@ -48,20 +51,32 @@ function App({
     }
   };
 
+  const getCharactersToDisplay = () => {
+    const newCharacters = [];
+    for (let i = 0; i < difficultyLevel; i++) {
+      const randNum = Math.floor(Math.random() * 10);
+      const randomCharacter = characters[randNum];
+      newCharacters.push(randomCharacter);
+    }
+    setCharactersToDisplay(newCharacters);
+  }
+
   return (
     <>
       {!isLoadingOver
         ? <LoadingPage />
         : (
           <>
-              {!isDifficultyChosen
+              {!difficultyLevel
                 ? <StartPage 
-                      setIsDifficultyChosen={setIsDifficultyChosen}
+                      setDifficultyLevel={setDifficultyLevel}
                       playClick={playClick}/>
                 : <GamePage 
                       goBackToStartPage={goBackToStartPage}
                       playClick={playClick}
-                      playFlip={playFlip}/>}
+                      playFlip={playFlip}
+                      getCharactersToDisplay={getCharactersToDisplay}
+                      charactersToDisplay={charactersToDisplay}/>}
 
               <Footer 
                   isMusicPlaying={isMusicPlaying}
