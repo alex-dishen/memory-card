@@ -15,51 +15,61 @@ const characters = [
         id: uniqid(),
         name: 'Bill',
         src: bill,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Dipper',
         src: dipper,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Ford',
         src: ford,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Gideon',
         src: gideon,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Mabel',
         src: mabel,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Robbie',
         src: robbie,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Soos',
         src: soos,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Stan',
         src: stan,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Waddles',
         src: waddles,
+        clicked: false,
     },
     {
         id: uniqid(),
         name: 'Wendy',
         src: wendy,
+        clicked: false,
     },
 ];
 

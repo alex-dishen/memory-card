@@ -1,5 +1,5 @@
 import dipperRunning from '../assets/img/dipper_running.gif';
-import '../styles/LoadingPage.css'
+import '../styles/LoadingPage.scss'
 
 function LoadingPage() {
     return (

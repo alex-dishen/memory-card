@@ -10,7 +10,7 @@ import flipSound from './assets/sounds/flip.mp3';
 import clickSound from './assets/sounds/click.wav';
 import characters from './components/characters';
 import './styles/normalize.css';
-import './styles/App.css';
+import './styles/App.scss';
 
 function App({
   handleSongLoading,
@@ -24,6 +24,8 @@ function App({
   const [difficultyLevel, setDifficultyLevel] = useState([]);
   const [charactersToPlayWith, setCharactersToPlayWith] = useState([]);
   const [charactersToDisplay, setCharactersToDisplay] = useState([]);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,7 +40,7 @@ function App({
   const playFlip = () => {
     if(isSoundPlaying) {
       const audio = new Audio(flipSound);
-      audio.volume = 0.13;
+      audio.volume = 0.2;
       audio.play();
     }
   };
@@ -46,7 +48,7 @@ function App({
   const playClick = () => {
     if(isSoundPlaying) {
       const audio = new Audio(clickSound);
-      audio.volume = 0.04;
+      audio.volume = 0.07;
       audio.play();
     }
   };
@@ -79,6 +81,13 @@ function App({
     }
   }
 
+  const countScore = () => {
+    setScore(score + 1)
+    if(score >= bestScore) {
+      setBestScore(bestScore + 1)
+    }
+  };
+
   return (
     <>
       {!isLoadingOver
@@ -98,7 +107,12 @@ function App({
                       setCharactersToDisplay={setCharactersToDisplay}
                       charactersToPlayWith={charactersToPlayWith}
                       charactersToDisplay={charactersToDisplay}
-                      shuffle={shuffle}/>}
+                      shuffle={shuffle}
+                      score={score}
+                      setScore={setScore}
+                      bestScore={bestScore}
+                      setBestScore={setBestScore}
+                      countScore={countScore}/>}
 
               <Footer 
                   isMusicPlaying={isMusicPlaying}
@@ -121,7 +135,7 @@ function App({
           onLoading={handleSongLoading}
           onPlaying={handleSongPlaying}
           onFinishedPlaying={handleSongFinishedPlaying}
-          volume={1.4}
+          volume={2.8}
           loop={true}/>
     </>
   );

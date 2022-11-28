@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import logo from '../assets/img/logo.png';
-import '../styles/StartPage.css';
+import '../styles/StartPage.scss';
 
 function StartPage({ setDifficultyLevel, playClick }) {
     return (

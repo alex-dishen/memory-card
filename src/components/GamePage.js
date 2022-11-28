@@ -2,18 +2,23 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import logo from '../assets/img/logo.png';
-import '../styles/GamePage.css';
+import '../styles/GamePage.scss';
 
 function GamePage({
     goBackToStartPage,
     playClick,
     playFlip,
+    shuffle,
     getCharactersToPlayWith,
+    countScore,
     charactersToPlayWith,
     charactersToDisplay,
+    score,
+    bestScore,
+    setScore,
+    setBestScore,
     setCharactersToDisplay,
     setCharactersToPlayWith,
-    shuffle
 }) {
 
     const [isFlipped, setIsFlipped] = useState(false);
@@ -24,8 +29,29 @@ function GamePage({
 
         return () => {
             setCharactersToPlayWith([]);
+            setScore(0);
+            setBestScore(0);
         }
     }, []);
+
+    const handleCardClick = (character) => {
+        console.log(character)
+        // Prevents user from multiple clicks while card is flipping
+        setIsClicked(true)
+        if(isClicked) return
+
+        setIsFlipped(true)
+        playFlip();
+        countScore();
+        setTimeout(() => {
+            shuffle(charactersToPlayWith)
+        }, 800);
+        setTimeout(() => {
+            setIsFlipped(false);
+            setIsClicked(false);
+            playFlip();
+        }, 1300);
+    }
 
     return (
         <>
@@ -43,8 +69,8 @@ function GamePage({
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     transition={{duration: 0.6}}>
-                    <div>Score: 0</div>
-                    <div>Best score: 0</div>
+                    <div>Score: {score}</div>
+                    <div>Best score: {bestScore}</div>
                 </motion.div>
             </div>
         </header>
@@ -59,17 +85,7 @@ function GamePage({
                         <div
                         key={character.id}
                         className={isFlipped ? 'card flipped' : 'card'}
-                        onClick={() => {
-                            if(!isClicked)
-                            playFlip();
-                            setIsFlipped(true)
-                            setTimeout(() => {
-                                setIsFlipped(false);
-                                playFlip();
-                            }, 1300);
-                            setTimeout(() => {
-                                shuffle(charactersToPlayWith)
-                            }, 800)}}>
+                        onClick={() => {handleCardClick(character)}}>
                             <Tilt
                             glareEnable={true}
                             glareMaxOpacity={0.6}

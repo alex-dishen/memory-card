@@ -6,7 +6,7 @@ import { ReactComponent as QuestionMark } from '../assets/img/question_mark.svg'
 import { ReactComponent as Cross } from '../assets/img/cross.svg';
 import mabelInfo from '../assets/img/mabel-info.png';
 import { motion, AnimatePresence } from 'framer-motion';
-import '../styles/Footer.css';
+import '../styles/Footer.scss';
 
 function Footer({
     isMusicPlaying,
