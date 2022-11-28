@@ -19,6 +19,7 @@ function GamePage({
     setBestScore,
     setCharactersToDisplay,
     setCharactersToPlayWith,
+    stateRoundResult
 }) {
 
     const [isFlipped, setIsFlipped] = useState(false);
@@ -35,11 +36,12 @@ function GamePage({
     }, []);
 
     const handleCardClick = (character) => {
-        console.log(character)
         // Prevents user from multiple clicks while card is flipping
         setIsClicked(true)
         if(isClicked) return
 
+        stateRoundResult(character);
+        character.clicked = true;
         setIsFlipped(true)
         playFlip();
         countScore();
@@ -107,6 +109,11 @@ function GamePage({
             </div>
             <div className='remainIndicator'>{`0 / ${charactersToPlayWith.length}`}</div>
         </motion.div>
+        <div className='win'>
+            <div>You lose!</div>
+            <button>Restart</button>
+        </div>
+        <div className='overlay'></div>
         </>
     );
 }

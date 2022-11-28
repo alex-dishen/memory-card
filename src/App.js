@@ -79,13 +79,21 @@ function App({
       }
       setCharactersToDisplay(shuffledCharacters);
     }
-  }
+  };
 
   const countScore = () => {
     setScore(score + 1)
     if(score >= bestScore) {
       setBestScore(bestScore + 1)
     }
+  };
+
+  const stateRoundResult = (character) => {
+    const areAllClicked = charactersToPlayWith.every(character => {
+      return character.clicked === true
+    });
+
+    if(character.clicked) {console.log('lost')} else if(areAllClicked) {console.log('won')}
   };
 
   return (
@@ -112,7 +120,8 @@ function App({
                       setScore={setScore}
                       bestScore={bestScore}
                       setBestScore={setBestScore}
-                      countScore={countScore}/>}
+                      countScore={countScore}
+                      stateRoundResult={stateRoundResult}/>}
 
               <Footer 
                   isMusicPlaying={isMusicPlaying}

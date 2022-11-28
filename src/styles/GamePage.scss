@@ -107,3 +107,59 @@
     color: white;
     font-size: 20px;
 }
+
+.win {
+    position: absolute;
+    aspect-ratio: 1.82 / 1;
+    width: 800px;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-image: url(../assets/img/won.avif);
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+
+    box-shadow:  0px 5px 20px #113661, -0px -5px 20px #113661;
+
+    div {
+        margin-top: 25px;
+        font-size: 40px;
+        padding: 15px 30px 15px 30px;
+        background-color: rgb(50, 104, 165);
+        color: white;
+        border-radius: 20px;
+    }
+
+    button {
+        margin-bottom: 25px;
+        font-size: 26px;
+        padding: 12px 20px 12px 20px;
+        border-radius: 20px;
+    }
+}
+
+.lose {
+    @extend .win;
+    background-image: url(../assets/img/lost.jpg);
+    box-shadow:  0px 5px 20px #611111, -0px -5px 20px #611111;
+
+    div {
+        background-color: rgb(175, 15, 15);
+    }
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+}
