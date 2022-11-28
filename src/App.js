@@ -89,11 +89,14 @@ function App({
   };
 
   const stateRoundResult = (character) => {
-    const areAllClicked = charactersToPlayWith.every(character => {
-      return character.clicked === true
-    });
-
-    if(character.clicked) {console.log('lost')} else if(areAllClicked) {console.log('won')}
+    if(character.clicked) {
+      return 'lose'
+    }
+    if(score === difficultyLevel[0] - 1) {
+      return 'win'
+    } else {
+      return ''
+    }
   };
 
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import logo from '../assets/img/logo.png';
 import '../styles/GamePage.scss';
@@ -24,6 +24,7 @@ function GamePage({
 
     const [isFlipped, setIsFlipped] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
+    const [result, setResult] = useState('');
 
     useEffect(() => {
         getCharactersToPlayWith();
@@ -32,6 +33,9 @@ function GamePage({
             setCharactersToPlayWith([]);
             setScore(0);
             setBestScore(0);
+            charactersToPlayWith.forEach(character => {
+                character.clicked = false;
+            });
         }
     }, []);
 
@@ -40,11 +44,11 @@ function GamePage({
         setIsClicked(true)
         if(isClicked) return
 
-        stateRoundResult(character);
+        countScore();
+        setResult(stateRoundResult(character));
         character.clicked = true;
         setIsFlipped(true)
         playFlip();
-        countScore();
         setTimeout(() => {
             shuffle(charactersToPlayWith)
         }, 800);
@@ -54,6 +58,15 @@ function GamePage({
             playFlip();
         }, 1300);
     }
+
+    const restartTheGame = () => {
+        setScore(0);
+        getCharactersToPlayWith();
+        setResult('');
+        charactersToPlayWith.forEach(character => {
+            character.clicked = false;
+        });
+      };
 
     return (
         <>
@@ -107,13 +120,31 @@ function GamePage({
                     );
                 })}
             </div>
-            <div className='remainIndicator'>{`0 / ${charactersToPlayWith.length}`}</div>
+            <div className='remainIndicator'>{`${score} / ${charactersToPlayWith.length}`}</div>
         </motion.div>
-        <div className='win'>
-            <div>You lose!</div>
-            <button>Restart</button>
-        </div>
-        <div className='overlay'></div>
+        <AnimatePresence>
+            {result !== '' &&
+                <>
+                    <motion.div 
+                    className={result === 'win' ? 'win' : 'lose'}
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{duration: 0.7}}
+                    exit={{opacity: 0}}
+                    >
+                        <div>{result === 'win' ? 'You win!' : 'You lose!'}</div>
+                        <button onClick={restartTheGame}>Restart</button>
+                    </motion.div>
+                    <motion.div 
+                    initial={{opacity: 0}}
+                    animate={{opacity: 0.6}}
+                    transition={{duration: 0.7}}
+                    exit={{opacity: 0}}
+                    className='overlay'>
+                    </motion.div>
+                </>
+            }
+        </AnimatePresence>
         </>
     );
 }
