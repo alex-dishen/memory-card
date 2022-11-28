@@ -9,16 +9,21 @@ function GamePage({
     playClick,
     playFlip,
     getCharactersToPlayWith,
-    charactersToPlayWith
+    charactersToPlayWith,
+    charactersToDisplay,
+    setCharactersToDisplay,
+    setCharactersToPlayWith,
+    shuffle
 }) {
 
     const [isFlipped, setIsFlipped] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
 
     useEffect(() => {
         getCharactersToPlayWith();
 
         return () => {
-            charactersToPlayWith = [];
+            setCharactersToPlayWith([]);
         }
     }, []);
 
@@ -49,12 +54,22 @@ function GamePage({
             animate={{scale: 1}}
             transition={{duration: 0.5}}>
             <div className='cardSection'>
-                {charactersToPlayWith.map(character => {
+                {charactersToDisplay.map(character => {
                     return(
                         <div
                         key={character.id}
                         className={isFlipped ? 'card flipped' : 'card'}
-                        onClick={() => { playFlip(); setIsFlipped(!isFlipped)}}>
+                        onClick={() => {
+                            if(!isClicked)
+                            playFlip();
+                            setIsFlipped(true)
+                            setTimeout(() => {
+                                setIsFlipped(false);
+                                playFlip();
+                            }, 1300);
+                            setTimeout(() => {
+                                shuffle(charactersToPlayWith)
+                            }, 800)}}>
                             <Tilt
                             glareEnable={true}
                             glareMaxOpacity={0.6}
@@ -74,7 +89,7 @@ function GamePage({
                     );
                 })}
             </div>
-            <div className='remainIndicator'>{`0 / 0`}</div>
+            <div className='remainIndicator'>{`0 / ${charactersToPlayWith.length}`}</div>
         </motion.div>
         </>
     );

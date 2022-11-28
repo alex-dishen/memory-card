@@ -23,6 +23,7 @@ function App({
   const [isInfoNeeded, setIsInfoNeeded] = useState(false);
   const [difficultyLevel, setDifficultyLevel] = useState([]);
   const [charactersToPlayWith, setCharactersToPlayWith] = useState([]);
+  const [charactersToDisplay, setCharactersToDisplay] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,6 +62,21 @@ function App({
     }
 
     setCharactersToPlayWith(randomCharacters);
+    shuffle(randomCharacters);
+  };
+
+  const shuffle = (array) => {
+    let shuffledCharacters = [];
+
+    while(shuffledCharacters.length < difficultyLevel[1]) {
+      const randNum = Math.floor(Math.random() * array.length);
+      if(!shuffledCharacters.includes(array[randNum])) {
+        if(!charactersToDisplay.includes[array[randNum]]) {
+          shuffledCharacters.push(array[randNum]);
+        }
+      }
+      setCharactersToDisplay(shuffledCharacters);
+    }
   }
 
   return (
@@ -78,7 +94,11 @@ function App({
                       playClick={playClick}
                       playFlip={playFlip}
                       getCharactersToPlayWith={getCharactersToPlayWith}
-                      charactersToPlayWith={charactersToPlayWith}/>}
+                      setCharactersToPlayWith={setCharactersToPlayWith}
+                      setCharactersToDisplay={setCharactersToDisplay}
+                      charactersToPlayWith={charactersToPlayWith}
+                      charactersToDisplay={charactersToDisplay}
+                      shuffle={shuffle}/>}
 
               <Footer 
                   isMusicPlaying={isMusicPlaying}
