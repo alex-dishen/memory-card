@@ -20,7 +20,6 @@ function App({
   const [isLoadingOver, setIsLoadingOver] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isSoundPlaying, setIsSoundPlaying] = useState(true);
-  const [isInfoNeeded, setIsInfoNeeded] = useState(false);
   const [difficultyLevel, setDifficultyLevel] = useState([]);
   const [charactersToPlayWith, setCharactersToPlayWith] = useState([]);
   const [charactersToDisplay, setCharactersToDisplay] = useState([]);
@@ -73,7 +72,7 @@ function App({
 
     while(shuffledCharacters.length < difficultyLevel[1]) {
       const randNum = Math.floor(Math.random() * array.length);
-      const character = array[randNum]
+      const character = array[randNum];
       if(!shuffledCharacters.includes(character)
         && (clicked < difficultyLevel[1] - 1 || !character.clicked)) {
         shuffledCharacters.push(character);
@@ -133,8 +132,6 @@ function App({
                   setIsMusicPlaying={setIsMusicPlaying}
                   isSoundPlaying={isSoundPlaying}
                   setIsSoundPlaying={setIsSoundPlaying}
-                  isInfoNeeded={isInfoNeeded}
-                  setIsInfoNeeded={setIsInfoNeeded}
                   playClick={playClick}/>
           </>
         )

@@ -1,7 +1,8 @@
+import Header from '../components/Header';
+import Card from '../components/Card';
+import GameOver from '../components/GameOver';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Tilt from 'react-parallax-tilt';
-import logo from '../assets/img/logo.png';
 import '../styles/GamePage.scss';
 
 function GamePage({
@@ -40,19 +41,25 @@ function GamePage({
 
     const handleCardClick = (character) => {
         // Prevents user from multiple clicks while card is flipping
+        //after timeout below isClicked is false again and user can click
+        //on the card
         setIsClicked(true)
         if(isClicked) return
 
-        countScore();
-        setResult(stateRoundResult(character));
+        let turnResult = stateRoundResult(character);
+        setResult(turnResult);
         character.clicked = true;
-        const allClicked = charactersToPlayWith.every(character => character.clicked === true)
-        if(allClicked) {
+        // Prevents all actions from happening if user wins or looses
+        if(turnResult !== '') {
             setIsClicked(false)
             return
         };
+
+        countScore();
         setIsFlipped(true)
         playFlip();
+        // If shuffle happens after 1,3s then some cards appear without
+        //flipping affect 
         setTimeout(() => {
             shuffle(charactersToPlayWith)
         }, 800);
@@ -60,6 +67,7 @@ function GamePage({
             setIsFlipped(false);
             setIsClicked(false);
             playFlip();
+            turnResult = '';
         }, 1300);
     }
 
@@ -74,25 +82,11 @@ function GamePage({
 
     return (
         <>
-        <header>
-            <div className="headerContainer">
-                <motion.img 
-                    src={logo}
-                    alt="Logo"
-                    onClick={() => {goBackToStartPage(); playClick()}}
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    transition={{duration: 0.6}}/>
-                <motion.div
-                    className="score"
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    transition={{duration: 0.6}}>
-                    <div>Score: {score}</div>
-                    <div>Best score: {bestScore}</div>
-                </motion.div>
-            </div>
-        </header>
+        <Header 
+            goBackToStartPage={goBackToStartPage}
+            playClick={playClick}
+            score={score}
+            bestScore={bestScore}/>
         <motion.div 
             className='playGround'
             initial={{scale: 0}}
@@ -101,26 +95,10 @@ function GamePage({
             <div className='cardSection'>
                 {charactersToDisplay.map(character => {
                     return(
-                        <div
-                        key={character.id}
-                        className={isFlipped ? 'card flipped' : 'card'}
-                        onClick={() => {handleCardClick(character)}}>
-                            <Tilt
-                            glareEnable={true}
-                            glareMaxOpacity={0.6}
-                            glareColor="#ffffff"
-                            glarePosition="bottom"
-                            glareBorderRadius="20px"
-                            className='tilt'>
-                                <div className='cardFace'>
-                                    <div
-                                        className="characterHolder"
-                                        style={{backgroundImage: `url(${character.src})`}} />
-                                    <div className='name'>{character.name}</div>
-                                </div>
-                                <div className='cardBack'></div>
-                            </Tilt>
-                        </div>
+                        <Card 
+                            character={character}
+                            isFlipped={isFlipped}
+                            handleCardClick={handleCardClick}/>
                     );
                 })}
             </div>
@@ -128,25 +106,10 @@ function GamePage({
         </motion.div>
         <AnimatePresence>
             {result !== '' &&
-                <>
-                    <motion.div 
-                    className={result === 'win' ? 'win' : 'lose'}
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    transition={{duration: 0.7}}
-                    exit={{opacity: 0}}
-                    >
-                        <div>{result === 'win' ? 'You win!' : 'You lose!'}</div>
-                        <button onClick={restartTheGame}>Restart</button>
-                    </motion.div>
-                    <motion.div 
-                    initial={{opacity: 0}}
-                    animate={{opacity: 0.6}}
-                    transition={{duration: 0.7}}
-                    exit={{opacity: 0}}
-                    className='overlay'>
-                    </motion.div>
-                </>
+                <GameOver 
+                    restartTheGame={restartTheGame}
+                    playClick={playClick}
+                    result={result}/>
             }
         </AnimatePresence>
         </>
