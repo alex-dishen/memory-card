@@ -1,14 +1,14 @@
 import uniqid from 'uniqid';
-import bill from '../assets/img/characters/bill.webp';
-import dipper from '../assets/img/characters/dipper.webp';
-import ford from '../assets/img/characters/ford.png';
-import gideon from '../assets/img/characters/gideon.webp';
-import mabel from '../assets/img/characters/mabel.webp';
-import robbie from '../assets/img/characters/robbie.webp';
-import soos from '../assets/img/characters/soos.webp';
-import stan from '../assets/img/characters/stan.webp';
-import waddles from '../assets/img/characters/waddles.webp';
-import wendy from '../assets/img/characters/wendy.webp';
+import bill from './assets/img/characters/bill.webp';
+import dipper from './assets/img/characters/dipper.webp';
+import ford from './assets/img/characters/ford.png';
+import gideon from './assets/img/characters/gideon.webp';
+import mabel from './assets/img/characters/mabel.webp';
+import robbie from './assets/img/characters/robbie.webp';
+import soos from './assets/img/characters/soos.webp';
+import stan from './assets/img/characters/stan.webp';
+import waddles from './assets/img/characters/waddles.webp';
+import wendy from './assets/img/characters/wendy.webp';
 
 const characters = [
     {

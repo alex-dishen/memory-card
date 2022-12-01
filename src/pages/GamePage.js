@@ -17,7 +17,6 @@ function GamePage({
     bestScore,
     setScore,
     setBestScore,
-    setCharactersToDisplay,
     setCharactersToPlayWith,
     stateRoundResult
 }) {
@@ -47,6 +46,11 @@ function GamePage({
         countScore();
         setResult(stateRoundResult(character));
         character.clicked = true;
+        const allClicked = charactersToPlayWith.every(character => character.clicked === true)
+        if(allClicked) {
+            setIsClicked(false)
+            return
+        };
         setIsFlipped(true)
         playFlip();
         setTimeout(() => {
@@ -61,11 +65,11 @@ function GamePage({
 
     const restartTheGame = () => {
         setScore(0);
-        getCharactersToPlayWith();
         setResult('');
         charactersToPlayWith.forEach(character => {
             character.clicked = false;
         });
+        getCharactersToPlayWith();
       };
 
     return (

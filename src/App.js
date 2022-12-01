@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import LoadingPage from './components/LoadingPage';
-import StartPage from './components/StartPage';
-import GamePage from './components/GamePage';
+import LoadingPage from './pages/LoadingPage';
+import StartPage from './pages/StartPage';
+import GamePage from './pages/GamePage';
 import Footer from './components/Footer';
 import Sound from 'react-sound';
 import video from './assets/img/camp.mp4';
 import backgroundMusic from './assets/sounds/background_music.mp3';
 import flipSound from './assets/sounds/flip.mp3';
 import clickSound from './assets/sounds/click.wav';
-import characters from './components/characters';
+import characters from './characters';
 import './styles/normalize.css';
 import './styles/App.scss';
 
@@ -69,13 +69,15 @@ function App({
 
   const shuffle = (array) => {
     let shuffledCharacters = [];
+    let clicked = 0;
 
     while(shuffledCharacters.length < difficultyLevel[1]) {
       const randNum = Math.floor(Math.random() * array.length);
-      if(!shuffledCharacters.includes(array[randNum])) {
-        if(!charactersToDisplay.includes[array[randNum]]) {
-          shuffledCharacters.push(array[randNum]);
-        }
+      const character = array[randNum]
+      if(!shuffledCharacters.includes(character)
+        && (clicked < difficultyLevel[1] - 1 || !character.clicked)) {
+        shuffledCharacters.push(character);
+        clicked += +character.clicked
       }
       setCharactersToDisplay(shuffledCharacters);
     }
