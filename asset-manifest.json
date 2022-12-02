@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/memory-card/static/css/main.9b58a858.css",
+    "main.js": "/memory-card/static/js/main.55f0b67d.js",
+    "static/media/background_music.mp3": "/memory-card/static/media/background_music.a0c80d955780c4fe701c.mp3",
+    "static/media/camp.mp4": "/memory-card/static/media/camp.a9eb05acead02f538c8e.mp4",
+    "static/media/ford.png": "/memory-card/static/media/ford.0067daebae9115c1423f.png",
+    "static/media/dipper_running.gif": "/memory-card/static/media/dipper_running.da9fe77d98122d0ec255.gif",
+    "static/media/logo.png": "/memory-card/static/media/logo.c6fcf4daeea2d2e4ecf7.png",
+    "static/media/click.wav": "/memory-card/static/media/click.2604a56c761e9cbfc005.wav",
+    "static/media/mabel-info.png": "/memory-card/static/media/mabel-info.04e90cb3328647f5919d.png",
+    "static/media/card_background.jpg": "/memory-card/static/media/card_background.eaa0094ec4d7cde31ae6.jpg",
+    "static/media/won.avif": "/memory-card/static/media/won.0a0708c264f8c1df00a3.avif",
+    "static/media/bill.webp": "/memory-card/static/media/bill.de44001b56560cd47f1a.webp",
+    "static/media/mabel.webp": "/memory-card/static/media/mabel.8272f3c17171f6294d46.webp",
+    "static/media/wendy.webp": "/memory-card/static/media/wendy.d37028f974744da02985.webp",
+    "static/media/lost.jpg": "/memory-card/static/media/lost.d7a8631764aa848f077b.jpg",
+    "static/media/soos.webp": "/memory-card/static/media/soos.f8999dd66c28ad661338.webp",
+    "static/media/dipper.webp": "/memory-card/static/media/dipper.69be20f1c5c6cfd04b20.webp",
+    "static/media/waddles.webp": "/memory-card/static/media/waddles.d1affe305382a96173f3.webp",
+    "static/media/gideon.webp": "/memory-card/static/media/gideon.9563c7fe37d5c5abf3bf.webp",
+    "static/media/stan.webp": "/memory-card/static/media/stan.a21417120570bfe06c16.webp",
+    "static/media/robbie.webp": "/memory-card/static/media/robbie.f30699e50fee6ee11688.webp",
+    "static/media/flip.mp3": "/memory-card/static/media/flip.482865a614fed3add746.mp3",
+    "static/media/volume.svg": "/memory-card/static/media/volume.4ee7868ff76f6fc0d229018a68b3549e.svg",
+    "static/media/volume_off.svg": "/memory-card/static/media/volume_off.02c84e4eaff621a9c8f1d622df16eadf.svg",
+    "static/media/question_mark.svg": "/memory-card/static/media/question_mark.63460c98b297136c8ae3ba39ea6b81ce.svg",
+    "static/media/music_off.svg": "/memory-card/static/media/music_off.f931a32ab39b215d5970e9c924f3b515.svg",
+    "static/media/music_sign.svg": "/memory-card/static/media/music_sign.82bbf1aa405c085743edc724045eae0d.svg",
+    "static/media/cross.svg": "/memory-card/static/media/cross.d9be68f60f890ae96420f0c457c84d31.svg",
+    "index.html": "/memory-card/index.html",
+    "main.9b58a858.css.map": "/memory-card/static/css/main.9b58a858.css.map",
+    "main.55f0b67d.js.map": "/memory-card/static/js/main.55f0b67d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b58a858.css",
+    "static/js/main.55f0b67d.js"
+  ]
+}
