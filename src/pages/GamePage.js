@@ -49,13 +49,13 @@ function GamePage({
         let turnResult = stateRoundResult(character);
         setResult(turnResult);
         character.clicked = true;
+        countScore();
         // Prevents all actions from happening if user wins or looses
         if(turnResult !== '') {
             setIsClicked(false)
             return
         };
 
-        countScore();
         setIsFlipped(true)
         playFlip();
         // If shuffle happens after 1,3s then some cards appear without

@@ -7,6 +7,12 @@ function Header({
     score,
     bestScore
 }) {
+    const variants = {
+        hidden: {opacity: 0},
+        visible: {
+            opacity: 1,
+            transition: {duration: 0.6}}
+    }
     return (
         <header>
             <div className="headerContainer">
@@ -17,14 +23,16 @@ function Header({
                         goBackToStartPage(); 
                         playClick();
                     }}
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    transition={{duration: 0.6}}/>
+                    variants={variants}
+                    initial='hidden'
+                    animate='visible'
+                    />
                 <motion.div
                     className="score"
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    transition={{duration: 0.6}}>
+                    variants={variants}
+                    initial='hidden'
+                    animate='visible'
+                    >
                     <div>Score: {score}</div>
                     <div>Best score: {bestScore}</div>
                 </motion.div>
