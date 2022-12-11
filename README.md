@@ -32,5 +32,5 @@ npm start
 ```
 
 ## **Navigation**
-* See my next project [Shop](https://github.com/alex-dishen/shop)
+* See my next project [To-Do](https://github.com/alex-dishen/todo-app)
 * See my previous project [CV Maker](https://github.com/alex-dishen/cv-maker)
