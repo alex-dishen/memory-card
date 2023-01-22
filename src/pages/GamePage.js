@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import uniqid from 'uniqid';
 import Header from '../components/Header';
 import Card from '../components/Card';
 import GameOver from '../components/GameOver';

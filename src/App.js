@@ -34,6 +34,9 @@ function App({
 
   const goBackToStartPage = () => {
     setDifficultyLevel([]);
+    charactersToPlayWith.forEach(character => {
+      character.clicked = false;
+  });
   };
 
   const playFlip = () => {
