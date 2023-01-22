@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/memory-card/static/css/main.9b58a858.css",
-    "main.js": "/memory-card/static/js/main.55f0b67d.js",
+    "main.js": "/memory-card/static/js/main.70a7fa40.js",
     "static/media/background_music.mp3": "/memory-card/static/media/background_music.a0c80d955780c4fe701c.mp3",
     "static/media/camp.mp4": "/memory-card/static/media/camp.a9eb05acead02f538c8e.mp4",
     "static/media/ford.png": "/memory-card/static/media/ford.0067daebae9115c1423f.png",
@@ -30,10 +30,10 @@
     "static/media/cross.svg": "/memory-card/static/media/cross.d9be68f60f890ae96420f0c457c84d31.svg",
     "index.html": "/memory-card/index.html",
     "main.9b58a858.css.map": "/memory-card/static/css/main.9b58a858.css.map",
-    "main.55f0b67d.js.map": "/memory-card/static/js/main.55f0b67d.js.map"
+    "main.70a7fa40.js.map": "/memory-card/static/js/main.70a7fa40.js.map"
   },
   "entrypoints": [
     "static/css/main.9b58a858.css",
-    "static/js/main.55f0b67d.js"
+    "static/js/main.70a7fa40.js"
   ]
 }
