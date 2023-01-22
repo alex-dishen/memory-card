@@ -7,7 +7,6 @@ function Card({
 }) {
     return (
         <div
-            key={character.id}
             className={isFlipped ? 'card flipped' : 'card'}
             onClick={() => {handleCardClick(character)}}>
                 <Tilt

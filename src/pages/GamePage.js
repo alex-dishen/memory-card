@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import uniqid from 'uniqid';
 import Header from '../components/Header';
 import Card from '../components/Card';
 import GameOver from '../components/GameOver';
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/GamePage.scss';
 
 function GamePage({
@@ -49,12 +50,13 @@ function GamePage({
         let turnResult = stateRoundResult(character);
         setResult(turnResult);
         character.clicked = true;
-        countScore();
         // Prevents all actions from happening if user wins or looses
         if(turnResult !== '') {
+            if (turnResult === 'win') countScore();
             setIsClicked(false)
             return
         };
+        countScore();
 
         setIsFlipped(true)
         playFlip();
@@ -96,6 +98,7 @@ function GamePage({
                 {charactersToDisplay.map(character => {
                     return(
                         <Card 
+                            key={character.id}
                             character={character}
                             isFlipped={isFlipped}
                             handleCardClick={handleCardClick}/>
